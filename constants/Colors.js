@@ -28,6 +28,9 @@ export default {
     backgroundWhiteTheme: '#fce4ec'
   },
 
+  black: black,
+  white: white,
+  purpleAccent: purpleAccent,
   greyTransparent: '#d6636363',
   darkGrey: '#757575',
   errorRed: '#d50000',
