@@ -8,6 +8,7 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
+import Colors from '../constants/Colors';
 import { WebBrowser } from 'expo';
 
 import { MonoText } from '../components/StyledText';
@@ -21,6 +22,16 @@ export default class HomeScreen extends React.Component {
     return (
       <View style={styles.container}>
         <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
+          <View style={styles.defaultHeaderContainer}>
+            <Text style={styles.headerText}>
+              Deductive Wine Taster
+            </Text>
+          </View>
+          <View>
+            <Text style={styles.defaultTitleText}>
+              Start Blind Tasting!
+            </Text>
+          </View>
           <View style={styles.welcomeContainer}>
             <Image
               source={
@@ -99,6 +110,22 @@ export default class HomeScreen extends React.Component {
 }
 
 const styles = StyleSheet.create({
+  defaultHeaderContainer: {
+    backgroundColor: Colors.defaultTheme.primaryBackground,
+    paddingTop: 10,
+    paddingBottom: 10,
+    ...Platform.select({
+      ios: {
+        shadowColor: 'black',
+        shadowOffset: { height: -3 },
+        shadowOpacity: 0.1,
+        shadowRadius: 3,
+      },
+      android: {
+        elevation: 20,
+      },
+    }),
+  },
   container: {
     flex: 1,
     backgroundColor: '#fff',
@@ -111,7 +138,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   contentContainer: {
-    paddingTop: 30,
+    paddingTop: 25,
   },
   welcomeContainer: {
     alignItems: 'center',
@@ -139,6 +166,20 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(0,0,0,0.05)',
     borderRadius: 3,
     paddingHorizontal: 4,
+  },
+  headerText: {
+    fontSize: 32,
+    color: Colors.defaultTheme.primaryText,
+    textAlign: 'center',
+    fontWeight: 'bold'
+  },
+  defaultTitleText: {
+    fontSize: 24,
+    color: Colors.defaultTheme.primaryText,
+    textAlign: 'center',
+    fontWeight: 'bold',
+    paddingTop: 15,
+    paddingBottom: 15
   },
   getStartedText: {
     fontSize: 17,
